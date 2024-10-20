@@ -93,7 +93,8 @@ class Master:
                     raise Exception("任务时间应控制在19:00:00-20:00:00之间")
             except Exception as e:
                 print(f"环境变量[HLMEXECUTETIME]格式错误，应为HH:MM:SS且不应不晚于19:00:00\n将使用默认值'20:00:00'\n[Exception]{e}")
-                self.job["executeTime"] = "20:00:00"
+                # self.job["executeTime"] = "20:00:00"
+                self.job["executeTime"] = env_executeTime
             
      
     def delConfigFile(self):
