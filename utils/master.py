@@ -84,7 +84,9 @@ class Master:
             self.job["executeTime"] = "20:00:00"
         else:
             try:
-                exeTime=dt.strptime(env_executeTime,"%H:%M:%S")                         
+                exeTime=dt.strptime(env_executeTime,"%H:%M:%S")  
+                print(f"preExeTime固定为{env_executeTime}")
+                self.job["preExeTime"] = env_executeTime
                 print(f"executeTime固定为{env_executeTime}")
                 self.job["executeTime"] = env_executeTime
                 # if exeTime.hour==20 and exeTime.minute==0:
