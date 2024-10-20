@@ -18,22 +18,22 @@ jobs:
         env:
           HLMUSERID: ${{ secrets.HLMUSERID }}
           HLMPASSWORD: ${{ secrets.HLMPASSWORD }}
-          HLMPLANCODE: ${{ secrets.HLMPLANCODE }}
-          HLMMAXTRIALS: ${{ secrets.HLMMAXTRIALS }}
-          HLMDELAY: ${{ secrets.HLMDELAY }}
-          HLMLOGDETAILS: ${{ secrets.HLMLOGDETAILS }}
-          HLMEXECUTETIME: ${{ secrets.HLMEXECUTETIME }}
-          HLMPREEXETIME: ${{ secrets.HLMPREEXETIME }}
+          HLMPLANCODE: ${{ vars.HLMPLANCODE }}
+          HLMMAXTRIALS: ${{ vars.HLMMAXTRIALS }}
+          HLMDELAY: ${{ vars.HLMDELAY }}
+          HLMLOGDETAILS: ${{ vars.HLMLOGDETAILS }}
+          HLMEXECUTETIME: ${{ vars.HLMEXECUTETIME }}
+          HLMPREEXETIME: ${{ vars.HLMPREEXETIME }}
         run:  python main.py
       - name: Seats reserving
         env:
           HLMUSERID: ${{ secrets.HLMUSERID }}
           HLMPASSWORD: ${{ secrets.HLMPASSWORD }}
-          HLMPLANCODE: ${{ secrets.HLMPLANCODE }}
-          HLMMAXTRIALS: ${{ secrets.HLMMAXTRIALS }}
-          HLMDELAY: ${{ secrets.HLMDELAY }}
-          HLMLOGDETAILS: ${{ secrets.HLMLOGDETAILS }}
-          HLMEXECUTETIME: ${{ secrets.HLMEXECUTETIME }}
-          HLMPREEXETIME: ${{ secrets.HLMPREEXETIME }}
+          HLMPLANCODE: ${{ vars.HLMPLANCODE }}
+          HLMMAXTRIALS: ${{ vars.HLMMAXTRIALS }}
+          HLMDELAY: ${{ vars.HLMDELAY }}
+          HLMLOGDETAILS: ${{ vars.HLMLOGDETAILS }}
+          HLMEXECUTETIME: ${{ vars.HLMEXECUTETIME }}
+          HLMPREEXETIME: ${{ vars.HLMPREEXETIME }}
         run:  python main.py
         
