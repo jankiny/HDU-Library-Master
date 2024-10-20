@@ -1,4 +1,4 @@
-name : HDU-Library-Master
+name: HDU-Library-Master
 on:
   schedule:
     - cron: '25 11 * * *'
@@ -24,7 +24,7 @@ jobs:
           HLMLOGDETAILS: ${{ vars.HLMLOGDETAILS }}
           HLMEXECUTETIME: ${{ vars.HLMEXECUTETIME }}
           HLMPREEXETIME: ${{ vars.HLMPREEXETIME }}
-        run:  python main.py
+        run: python main.py > result.log
       - name: Seats reserving
         env:
           HLMUSERID: ${{ secrets.HLMUSERID }}
@@ -35,5 +35,16 @@ jobs:
           HLMLOGDETAILS: ${{ vars.HLMLOGDETAILS }}
           HLMEXECUTETIME: ${{ vars.HLMEXECUTETIME }}
           HLMPREEXETIME: ${{ vars.HLMPREEXETIME }}
-        run:  python main.py
-        
+        run: python main.py >> result.log
+      - name: 'Send mail'
+        uses: dawidd6/action-send-mail@master
+        with:
+          serveraddress: smtp.163.com
+          serverport: 465
+          username: ${{ secrets.MAILUSERNAME }}
+          password: ${{ secrets.MAILPASSWORD }}
+          subject: 'HDU Library Seat Reservation Result'
+          body: file://result.log
+          to: yifeng.ruan@gmail.com
+          from: GitHub Actions
+          content_type: text/plain
