@@ -45,6 +45,6 @@ jobs:
           password: ${{ secrets.MAILPASSWORD }}
           subject: 'HDU Library Seat Reservation Result'
           body: file://result.log
-          to: yifeng.ruan@gmail.com
+          to: zhenglei.y@hdu.edu.cn
           from: GitHub Actions
           content_type: text/plain
