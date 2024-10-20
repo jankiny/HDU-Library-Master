@@ -47,4 +47,3 @@ jobs:
           body: file://result.log
           to: zhenglei.y@hdu.edu.cn
           from: GitHub Actions
-          content_type: text/plain
