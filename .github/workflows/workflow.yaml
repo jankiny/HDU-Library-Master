@@ -24,7 +24,7 @@ jobs:
           HLMLOGDETAILS: ${{ vars.HLMLOGDETAILS }}
           HLMEXECUTETIME: ${{ vars.HLMEXECUTETIME }}
           HLMPREEXETIME: ${{ vars.HLMPREEXETIME }}
-        run: python main.py > result.log
+        run: python main.py
       - name: Seats reserving
         env:
           HLMUSERID: ${{ secrets.HLMUSERID }}
@@ -35,15 +35,15 @@ jobs:
           HLMLOGDETAILS: ${{ vars.HLMLOGDETAILS }}
           HLMEXECUTETIME: ${{ vars.HLMEXECUTETIME }}
           HLMPREEXETIME: ${{ vars.HLMPREEXETIME }}
-        run: python main.py >> result.log
-      - name: 'Send mail'
+        run: python main.py > result.log
+      - name: Send mail
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.qq.com
           server_port: 465
           username: ${{ secrets.MAILUSERNAME }}
           password: ${{ secrets.MAILPASSWORD }}
-          subject: 'HDU Library Seat Reservation Result'
+          subject: 'HDU图书馆座位预约结果'
           body: file://result.log
           to: zhenglei.y@hdu.edu.cn
           from: GitHub Actions
