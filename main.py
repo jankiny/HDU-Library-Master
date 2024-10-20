@@ -44,6 +44,8 @@ def run():
             )
             
             time_wait = (preExeTime - nowTime).seconds
+            print(f'preExeTime：{preExeTime}')
+            print(f'nowTime：{nowTime}')
             if time_wait < 7200:
                 # checkpoint A: executeTime seats reservation at 00:00:01
                 print(f"[{getNowTime()}][checkpoint A]未到任务执行时间，还差[{time_wait}]s，等待中...")
