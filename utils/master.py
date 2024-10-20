@@ -84,17 +84,18 @@ class Master:
             self.job["executeTime"] = "20:00:00"
         else:
             try:
-                exeTime=dt.strptime(env_executeTime,"%H:%M:%S")
-                if exeTime.hour==20 and exeTime.minute==0:
-                    pass
-                elif exeTime.hour>=19 and exeTime.hour<20:
-                    self.job["executeTime"] = env_executeTime
-                else:
-                    raise Exception("任务时间应控制在19:00:00-20:00:00之间")
+                exeTime=dt.strptime(env_executeTime,"%H:%M:%S")                         
+                print(f"executeTime固定为{env_executeTime}")
+                self.job["executeTime"] = env_executeTime
+                # if exeTime.hour==20 and exeTime.minute==0:
+                #     pass
+                # elif exeTime.hour>=19 and exeTime.hour<20:
+                #     self.job["executeTime"] = env_executeTime
+                # else:
+                #     raise Exception("任务时间应控制在19:00:00-20:00:00之间")
             except Exception as e:
                 print(f"环境变量[HLMEXECUTETIME]格式错误，应为HH:MM:SS且不应不晚于19:00:00\n将使用默认值'20:00:00'\n[Exception]{e}")
-                # self.job["executeTime"] = "20:00:00"
-                self.job["executeTime"] = env_executeTime
+                self.job["executeTime"] = "20:00:00"       
             
      
     def delConfigFile(self):
